@@ -40,6 +40,15 @@ func main() {
 
 	// Initialize Gin router
 	r := gin.Default()
+	r := gin.Default()
+
+// Serve static files (frontend)
+r.Static("/static", "./frontend")
+
+// Route to serve the frontend HTML file
+r.GET("/", func(c *gin.Context) {
+    c.File("./frontend/index.html")
+})
 
 	// CORS middleware (to allow frontend to communicate with backend)
 	r.Use(func(c *gin.Context) {
