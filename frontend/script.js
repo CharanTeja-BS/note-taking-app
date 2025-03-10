@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080"; // Backend URL
+const API_URL = "https://note-taking-app.onrender.com";
 
 // DOM Elements
 const noteForm = document.getElementById("note-form");
