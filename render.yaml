@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: note-taking-app
+    env: go
+    buildCommand: go build -o note-taking-app
+    startCommand: ./note-taking-app
+    envVars:
+      - key: PORT
+        value: 8080
+    staticPublishPath: ./frontend
