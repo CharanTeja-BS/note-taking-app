@@ -1,4 +1,4 @@
-const API_URL = "https://note-taking-app.onrender.com";
+const API_URL = "https://note-taking-app-8n69.onrender.com/";
 
 // DOM Elements
 const noteForm = document.getElementById("note-form");
