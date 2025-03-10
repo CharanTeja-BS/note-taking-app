@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 	_ "modernc.org/sqlite" // Import the pure Go SQLite driver
 )
 
@@ -20,7 +20,7 @@ type Note struct {
 
 func main() {
 	// Connect to SQLite database using modernc.org/sqlite
-	db, err := sql.Open("sqlite", "notes.db")
+	db, err := sql.Open("sqlite", "./notes.db")
 	if err != nil {
 		panic("Failed to connect to database")
 	}
@@ -28,7 +28,7 @@ func main() {
 	// Wrap the *sql.DB with GORM
 	gormDB, err := gorm.Open(sqlite.Dialector{
 		DriverName: "sqlite",
-		DSN:        "notes.db",
+		DSN:        "./notes.db",
 		Conn:       db,
 	}, &gorm.Config{})
 	if err != nil {
@@ -40,15 +40,14 @@ func main() {
 
 	// Initialize Gin router
 	r := gin.Default()
-	r := gin.Default()
 
-// Serve static files (frontend)
-r.Static("/static", "./frontend")
+	// Serve static files (frontend)
+	r.Static("/static", "./frontend")
 
-// Route to serve the frontend HTML file
-r.GET("/", func(c *gin.Context) {
-    c.File("./frontend/index.html")
-})
+	// Route to serve the frontend HTML file
+	r.GET("/", func(c *gin.Context) {
+		c.File("./frontend/index.html")
+	})
 
 	// CORS middleware (to allow frontend to communicate with backend)
 	r.Use(func(c *gin.Context) {
