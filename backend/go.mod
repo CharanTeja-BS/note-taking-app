@@ -1,6 +1,6 @@
 module note-taking-app
 
-go 1.24.1
+go 1.24.0
 
 require (
 	github.com/bytedance/sonic v1.13.1 // indirect
