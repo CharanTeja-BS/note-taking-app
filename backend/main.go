@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -138,8 +139,12 @@ func main() {
 	})
 
 	// Start the server
-	fmt.Println("Server is running on http://localhost:8080")
-	r.Run(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port if PORT is not set
+	}
+	fmt.Printf("Server is running on http://localhost:%s\n", port)
+	r.Run(":" + port)
 }
 
 // Error handling middleware
