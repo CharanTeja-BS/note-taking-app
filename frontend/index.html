@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <h1>Minimalist Notes</h1>
+        <p>Your simple and elegant note-taking app</p>
+    </header>
+
+    <main class="container">
+        <!-- Note Form -->
+        <section id="note-form-section">
+            <form id="note-form">
+                <input type="text" id="note-title" placeholder="Title" required>
+                <textarea id="note-content" placeholder="Write your notes..." required></textarea>
+                <button type="submit">
+                    <i class="fas fa-save"></i> Save Note
+                </button>
+            </form>
+        </section>
+
+        <!-- Search Bar -->
+        <section class="search-container">
+            <input type="text" id="search" placeholder="Search notes...">
+            <button id="search-button">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </section>
+
+        <!-- Notes List -->
+        <section id="notes-list"></section>
+    </main>
+
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Marked.js for Markdown support -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

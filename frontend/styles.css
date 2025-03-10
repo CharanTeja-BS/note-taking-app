@@ -1,0 +1,327 @@
+/* General Styles */
+:root {
+    --bg-color: #f0f4f8;
+    --text-color: #2d3748;
+    --note-bg: #ffffff;
+    --note-border: #e2e8f0;
+    --button-bg: #6c5ce7;
+    --button-hover: #5a4ad1;
+    --delete-bg: #ff7675;
+    --delete-hover: #e84343;
+    --edit-bg: #fdcb6e;
+    --edit-hover: #e8a93e;
+    --search-bg: #f1f3f6;
+    --search-border: #d1d8e0;
+    --accent-color: #74b9ff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a2e;
+    --text-color: #e2e8f0;
+    --note-bg: #2d2d48;
+    --note-border: #444;
+    --button-bg: #6c5ce7;
+    --button-hover: #5a4ad1;
+    --delete-bg: #ff7675;
+    --delete-hover: #e84343;
+    --edit-bg: #fdcb6e;
+    --edit-hover: #e8a93e;
+    --search-bg: #2d2d48;
+    --search-border: #444;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+/* Hide scrollbar */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--button-bg), var(--accent-color));
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 700;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin: 10px 0 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Note Form */
+#note-form-section {
+    background: var(--note-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    animation: slideIn 0.8s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#note-form input, #note-form textarea {
+    width: 96%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--note-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--note-bg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+#note-form input:focus, #note-form textarea:focus {
+    border-color: var(--button-bg);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+#note-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#note-form button {
+    padding: 12px 24px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#note-form button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    animation: slideIn 0.8s ease-in-out;
+}
+
+#search {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--search-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--search-bg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+#search:focus {
+    border-color: var(--button-bg);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+#search-button {
+    padding: 12px 24px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#search-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Notes List */
+#notes-list {
+    display: grid;
+    gap: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.note {
+    background: var(--note-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.note h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.note .content {
+    margin: 0 0 15px;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.note .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.note button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.note button.edit {
+    background-color: var(--edit-bg);
+    color: #333;
+}
+
+.note button.edit:hover {
+    background-color: var(--edit-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.note button.delete {
+    background-color: var(--delete-bg);
+    color: white;
+}
+
+.note button.delete:hover {
+    background-color: var(--delete-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Toggle */
+#dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    background: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+#dark-mode-toggle:hover {
+    background: var(--button-hover);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    #note-form, .note {
+        padding: 15px;
+    }
+    #note-form input, #note-form textarea {
+        width: 92%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid var(--note-border);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: var(--note-bg);
+        color: var(--text-color);
+        transition: var(--transition);
+    }
+
+    #search-button {
+        padding: 10px 20px;
+    }
+}
